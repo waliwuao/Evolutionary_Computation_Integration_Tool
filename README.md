@@ -29,6 +29,10 @@ pop = Pop(pop_size, dim, var_min, var_max)
 # 初始化优化算法并执行
 bfo = BFO(pop)
 bfo.evolve(max_iter)
+
+#获取最优解与最优适应度
+best_solution = pop.get_best_solution_all()
+best_fitness = pop.get_best_fitness_all()
 ```
 
 **使用说明**：
