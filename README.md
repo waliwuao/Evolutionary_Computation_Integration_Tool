@@ -14,21 +14,21 @@ pip install numba
 **代码示例解析**：
 ```python
 from pop import Pop
-from bfo import BFO  # 可替换为其他算法如PSO、DE、GA、WPA
+from ga import GA  # 可替换为其他算法如PSO、DE、WPA
 
 # 参数设置
 pop_size = 100  # 种群大小
 dim = 8         # 维度（多项式系数数量）
 var_min = -1    # 变量最小值
 var_max = 1     # 变量最大值
-max_iter = 10000  # 最大迭代次数
+max_iter = 1000  # 最大迭代次数
 
 # 初始化种群
 pop = Pop(pop_size, dim, var_min, var_max)
 
 # 初始化优化算法并执行
-bfo = BFO(pop)
-bfo.evolve(max_iter)
+ga = GA(pop)
+ga.evolve(max_iter)
 
 #获取最优解与最优适应度
 best_solution = pop.get_best_solution_all()
@@ -36,7 +36,7 @@ best_fitness = pop.get_best_fitness_all()
 ```
 
 **使用说明**：
-- 替换导入的算法类（如`BFO`替换为`PSO`、`DE`等）可切换不同优化算法
+- 替换导入的算法类（如`GA`替换为`PSO`、`DE`等）可切换不同优化算法
 - 通过调整`pop_size`、`dim`等参数控制优化过程
 - 执行`evolve()`方法启动优化迭代
 
